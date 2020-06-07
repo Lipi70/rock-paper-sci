@@ -1,3 +1,3 @@
 # rock-paper-sci
 
-Please open console and type game() to start the game
+Traditional rock-paper-scissor game
