@@ -2,80 +2,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Rock Paper Scissor Game</title>
 </head>
 <body>
-    <h3>Please open console and type game() to start the game</h3>
-
-    <script>
-        let playerScore = 0;
-        let computerScore = 0;
-        let i = 0;
-
-        function game(){
-             for(i=0; i<5; i++){
-                let playerInput = prompt("Enter your choice - rock, paper or scissor"); 
-                let playerselection = playerInput.toLowerCase();                              // modify player's input to lowercase
-                let computerselection = computerPlay();                                      // call function to generate computer's answer
-                playRound(playerselection, computerselection);                               
-             }
-             compute_result(playerScore, computerScore);                                 // call function to compute final result after 5 rounds of game
-        }
+    <h3>Rock / Paper / Scissor</h3>
+    <p>Please select your choice by clicking on a button</p>
+    <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissor</button>
+    </div>
+    <div class="results">
+        <p id="result heading">Play five rounds of game with computer</p>
         
-/* Function generate computer's answer */
-        function computerPlay(){
-            let num = Math.floor(Math.random() * 3);   // this will return 3 random numbers
-            switch (num) {
-                case 0:
-                    return "rock";
-                    break;
-                case 1:
-                    return "paper";
-                    break;
-                case 2:
-                    return "scissor";
-                    break;
-            }
-        }
+    </div>
 
-        function playRound(playerselection, computerselection) {
-            if ((computerselection == "rock") && (playerselection == "paper")) {
-                playerScore = playerScore + 1 ;
-                console.log("You win! Paper beats rock");
-            } else if ((computerselection == "rock") && (playerselection == "scissor")) {
-                computerScore = computerScore + 1;
-                console.log("You loose! Rock beats scissor");
-            } else if ((computerselection == "rock") && (playerselection == "rock")) {
-                console.log("it is a draw");
-            } else if ((computerselection == "paper") && (playerselection == "rock")) {
-                computerScore = computerScore + 1;
-                console.log("You loose! Paper beats rock");
-            } else if ((computerselection == "paper") && (playerselection == "scissor")) {
-                playerScore = playerScore + 1 ;
-                console.log("You win! Scissor beats paper");
-            } else if ((computerselection == "paper") && (playerselection == "paper")) {
-                console.log("It is a draw");
-            } else if ((computerselection == "scissor") && (playerselection == "rock")) {
-                playerScore = playerScore + 1 ;
-                console.log("You win! Rock beats scissor");
-            } else if ((computerselection == "scissor") && (playerselection == "paper")) {
-                computerScore = computerScore + 1;
-                console.log("You loose! Scissor beats paper");
-            } else {
-                console.log("Enter a valid answer - rock paper or scissor");         // this will check for invalid user inputs
-                i = i -1;                                                            // this will re-initialise the counter as before negating the current invalid user input
-            }
-        }
-
-        /* Function to show final results after five rounds of game play   */
-        function compute_result(playerScore, computerScore) {
-            if (playerScore > computerScore){
-                console.log("You are the winner! Your Score :" + playerScore + " & Computer's Score :" + computerScore);
-            } else {
-                console.log("You are the looser! Your Score :" + playerScore + " & Computer's Score :" + computerScore);
-            }
-        }
-
-    </script>
+    <script src="game.js"></script>
 </body>
 </html>
